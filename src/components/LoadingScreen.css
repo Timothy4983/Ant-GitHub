@@ -1,0 +1,59 @@
+.loading-screen {
+  width: 100%;
+  max-width: 428px;
+  min-height: 100vh;
+  background-color: #F5F5DC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  position: relative;
+}
+
+.loading-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 200px;
+}
+
+.loading-animation {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: absolute;
+  bottom: 150px;
+}
+
+.ant-icon {
+  font-size: 48px;
+  animation: moveAnt 1.5s ease-in-out infinite;
+}
+
+.ant-icon-1 {
+  animation-delay: 0s;
+}
+
+.ant-icon-2 {
+  animation-delay: 0.3s;
+}
+
+.ant-icon-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes moveAnt {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
