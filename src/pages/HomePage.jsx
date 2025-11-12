@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AdSlider from '../components/AdSlider'
+import RegionSelector from '../components/RegionSelector'
 import './HomePage.css'
 
 const categories = [
@@ -78,7 +79,8 @@ const featuredClubs = [
 
 function HomePage() {
   const navigate = useNavigate()
-  const [selectedRegion, setSelectedRegion] = useState('서울특별시 서초구')
+  const [selectedRegion, setSelectedRegion] = useState('서울특별시')
+  const [selectedDistrict, setSelectedDistrict] = useState('서초구')
   const [ageRange, setAgeRange] = useState('20대')
   const [searchValue, setSearchValue] = useState('')
 
@@ -86,7 +88,7 @@ function HomePage() {
     event.preventDefault()
     navigate('/clubs', {
       state: {
-        region: selectedRegion,
+        region: `${selectedRegion} ${selectedDistrict}`,
         type: 'all',
         keyword: searchValue
       }
@@ -96,15 +98,14 @@ function HomePage() {
   return (
     <div className="home-desktop">
       <header className="top-nav">
-        <div className="logo" onClick={() => navigate('/')}>소모임</div>
+        <div className="logo" onClick={() => navigate('/')}>ANT</div>
         <div className="nav-controls">
-          <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)}>
-            <option>서울특별시 서초구</option>
-            <option>서울특별시 강남구</option>
-            <option>서울특별시 마포구</option>
-            <option>경기 수원시</option>
-            <option>부산 해운대구</option>
-          </select>
+          <RegionSelector
+            selectedRegion={selectedRegion}
+            selectedDistrict={selectedDistrict}
+            onRegionChange={setSelectedRegion}
+            onDistrictChange={setSelectedDistrict}
+          />
           <select value={ageRange} onChange={(e) => setAgeRange(e.target.value)}>
             <option>20대</option>
             <option>30대</option>
@@ -118,13 +119,9 @@ function HomePage() {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
-            <button type="submit">🔍</button>
           </form>
         </div>
         <div className="nav-actions">
-          <button className="icon-btn" aria-label="검색">
-            🔍
-          </button>
           <button className="icon-btn" aria-label="알림">
             🔔
           </button>
@@ -140,8 +137,8 @@ function HomePage() {
           <button className="download-btn">앱 다운로드</button>
           <nav className="sidebar-nav">
             <button className="active">🏠 홈</button>
-            <button>⭐ 추천모임</button>
-            <button>🏆 정모모임</button>
+            <button>⭐ 온라인</button>
+            <button>🏆 오프라인</button>
             <button>🕒 최근 본 모임</button>
           </nav>
 
@@ -163,13 +160,17 @@ function HomePage() {
         <main className="main-content">
           <section className="hero-section">
             <div className="hero-text">
-              <h1>소모임 - 우리동네 취미 모임 앱</h1>
+              <h1>작지만 지혜롭게, 함께 준비하는 우리</h1>
               <p>
-                소모임은 지역과 관심사에 맞는 모임을 쉽게 찾고 참여할 수 있는 서비스로, 500만+ 다운로드를 돌파한
-                국내 최대 규모의 오프라인 커뮤니티 플랫폼입니다. 다양한 정기 모임을 통해 관심사를 공유하는 사람들과 즐거운 만남을 열어보세요!
+                Ant는 성경 잠언의 개미처럼, 작지만 지혜롭게 미래를 준비하는 사람들의 모임입니다.
+                개미는 감독자 없이도 스스로 움직이고, 여름에 겨울을 준비합니다.
+                우리도 마찬가지로 하나님이 주신 몸과 마음을 성실히 가꾸고, 서로의 지혜를 나누며 함께 성장합니다.
+                <br />
+                <br />
+                <div>"게으른 자여, 개미에게 가서 그 하는 것을 보고 지혜를 얻으라"</div>
               </p>
-              <button className="hero-region" onClick={() => navigate('/clubs', { state: { region: selectedRegion, type: 'all' } })}>
-                📍 {selectedRegion} 근처 모임
+              <button className="hero-region" onClick={() => navigate('/clubs', { state: { region: `${selectedRegion} ${selectedDistrict}`, type: 'all' } })}>
+                📍 {selectedRegion} {selectedDistrict} 근처 모임
               </button>
             </div>
             <div className="hero-media">
@@ -180,7 +181,7 @@ function HomePage() {
           <section className="featured-section">
             <header className="section-header">
               <h2>활동이 활발한 모임</h2>
-              <button className="more-btn" onClick={() => navigate('/clubs', { state: { region: selectedRegion, type: 'all' } })}>
+              <button className="more-btn" onClick={() => navigate('/clubs', { state: { region: `${selectedRegion} ${selectedDistrict}`, type: 'all' } })}>
                 더보기 →
               </button>
             </header>
@@ -208,4 +209,3 @@ function HomePage() {
 }
 
 export default HomePage
-
