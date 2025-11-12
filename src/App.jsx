@@ -1,58 +1,24 @@
-import { useState } from 'react'
-import LoadingScreen from './components/LoadingScreen'
-import SignUpTab from './components/SignUpTab'
-import PhoneVerification from './components/PhoneVerification'
-import TermsPopup from './components/TermsPopup'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ClubListPage from './pages/ClubListPage'
+import ClubDetailPage from './pages/ClubDetailPage'
+import MyClubsPage from './pages/MyClubsPage'
+import FeedPage from './pages/FeedPage'
 
 function App() {
-  const [currentStep, setCurrentStep] = useState('loading')
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [showTerms, setShowTerms] = useState(false)
-  const [showPhoneError, setShowPhoneError] = useState(false)
-
-  const handlePhoneSubmit = () => {
-    // 전화번호 유효성 검사
-    if (phoneNumber.trim() === '' || phoneNumber.length < 10) {
-      setShowPhoneError(true)
-    } else {
-      setShowPhoneError(false)
-      setTimeout(() => {
-        setShowTerms(true)
-      }, 100)
-    }
-  }
-
-  const handleCloseTerms = () => {
-    setShowTerms(false)
-  }
-
-  const handleCompleteTerms = () => {
-    alert('가입이 완료되었습니다!')
-    setShowTerms(false)
-  }
-
   return (
-    <div className="app" style={{ width: '100%', maxWidth: '428px', margin: '0 auto', position: 'relative' }}>
-      {currentStep === 'loading' && (
-        <LoadingScreen onComplete={() => setCurrentStep('signup')} />
-      )}
-      {currentStep === 'signup' && (
-        <SignUpTab onComplete={() => setCurrentStep('phone')} />
-      )}
-      {currentStep === 'phone' && (
-        <>
-          <PhoneVerification
-            phoneNumber={phoneNumber}
-            setPhoneNumber={setPhoneNumber}
-            onSubmit={handlePhoneSubmit}
-            showError={showPhoneError}
-          />
-          {showTerms && (
-            <TermsPopup onClose={handleCloseTerms} onSubmit={handleCompleteTerms} />
-          )}
-        </>
-      )}
-    </div>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/clubs" element={<ClubListPage />} />
+          <Route path="/clubs/:id" element={<ClubDetailPage />} />
+          <Route path="/my-clubs" element={<MyClubsPage />} />
+          <Route path="/feed" element={<FeedPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 

@@ -1,0 +1,74 @@
+.ad-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  background-color: #1f2933;
+}
+
+.ad-slider-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.ad-slide {
+  min-width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  padding: 32px;
+}
+
+.ad-content {
+  text-align: center;
+  padding: 12px 24px;
+  z-index: 1;
+}
+
+.ad-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
+}
+
+.ad-description {
+  font-size: 16px;
+  opacity: 0.95;
+  text-shadow: 0 3px 10px rgba(15, 23, 42, 0.4);
+}
+
+.ad-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background-color: rgba(17, 24, 39, 0.3);
+}
+
+.ad-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.ad-dot.active {
+  background-color: #ffffff;
+  width: 32px;
+}
+
+.ad-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+

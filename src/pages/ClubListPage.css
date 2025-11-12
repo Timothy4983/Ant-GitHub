@@ -1,0 +1,154 @@
+.club-list-page {
+  width: 100%;
+  max-width: 428px;
+  min-height: 100vh;
+  background-color: #F5F5DC;
+  margin: 0 auto;
+}
+
+.club-list-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #8B4513;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.club-list-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.club-list-content {
+  padding: 20px;
+}
+
+.club-type-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.club-type-btn {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #E0E0E0;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.club-type-btn:hover {
+  border-color: #8B4513;
+  background-color: #FFF8DC;
+}
+
+.club-type-btn.active {
+  border-color: #8B4513;
+  background-color: #8B4513;
+  color: white;
+}
+
+.club-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.club-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.club-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.club-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.club-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.club-type-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.club-type-badge.online {
+  background-color: #E3F2FD;
+  color: #1976D2;
+}
+
+.club-type-badge.offline {
+  background-color: #F3E5F5;
+  color: #7B1FA2;
+}
+
+.club-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.club-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #888;
+}
+
+.club-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.club-tag {
+  padding: 4px 10px;
+  background-color: #FFF8DC;
+  color: #8B4513;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.no-clubs {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+

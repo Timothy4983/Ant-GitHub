@@ -1,0 +1,164 @@
+.feed-page {
+  width: 100%;
+  max-width: 428px;
+  min-height: 100vh;
+  background-color: #F5F5DC;
+  margin: 0 auto;
+}
+
+.feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #E0E0E0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.feed-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #8B4513;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.feed-content {
+  padding: 20px;
+}
+
+.feed-description {
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.feed-description p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.feed-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feed-post-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.post-header {
+  margin-bottom: 15px;
+}
+
+.post-club-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.club-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #FFF8DC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.club-name-link {
+  font-weight: 700;
+  color: #8B4513;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.club-name-link:hover {
+  text-decoration: underline;
+}
+
+.post-author-time {
+  font-size: 13px;
+  color: #999;
+}
+
+.post-author {
+  font-weight: 500;
+  color: #666;
+}
+
+.post-content {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-actions {
+  display: flex;
+  gap: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #F0F0F0;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: #F9F9F9;
+}
+
+.action-btn.like-btn.liked {
+  color: #E91E63;
+}
+
+.action-btn span:first-child {
+  font-size: 18px;
+}
+
