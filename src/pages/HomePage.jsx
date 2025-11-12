@@ -1,10 +1,22 @@
+// ./ -> 현재 폴더
+// ../ -> 한 단계 위 상위 폴더
+// ../../ -> 두 단계 위 상위 폴더
+// ../../../ -> 세 단계 위 상위 폴더
+
 import { useState } from 'react'
+// React 라이브러리에서 useState라는 기능을 가져와줘//
 import { useNavigate } from 'react-router-dom'
+// react-router-dom에서 페이지 이동 기능을 가져워줘//
 import AdSlider from '../components/AdSlider'
+// components 폴더에 있는 AdSlider라는 컴포넌트를 가져와줘//
 import RegionSelector from '../components/RegionSelector'
+// componets 폴더에 있는 RegionSelector를 가져와줘//
 import './HomePage.css'
+// 현재 폴더에 있는 HomePage.css 스타일 파일을 가져와줘//
 
 const categories = [
+  // categories라는 이름으로 아래 목록을 저장할게//
+  // const는 값을 저장하는 상자. 한 번 저장하면 바꿀 수 없는 상자라고 생각하면 됨//
   '전체',
   '운동/스포츠',
   '사교/인맥',
@@ -21,15 +33,24 @@ const categories = [
 ]
 
 const featuredClubs = [
+// featuredClubs라는 이름으로 아래 목록을 저장할게//
+// 소모임의 요약된 정보를 하나로 묶어서 저장함//
   {
     id: 1,
+    // 아이디를 1로 설정(고유번호)//
     name: '핸들락 클라이밍',
+    // 핸들락 클라이밍을 이름값으로 설정//
     description: '핸들락 클라이밍 Since 23.04.01 ✨ 신규회원 모집 중',
+    // 설명//
     category: '운동/스포츠',
+    // 카테고리 설정//
     region: '서울 서초구',
+    // 지역 설정//
     members: 55,
+    // 회원 수//
     image: 'https://images.unsplash.com/photo-1508264165352-258a6ca130fa?auto=format&fit=crop&w=900&q=70'
   },
+    // 이미지 주소 쉼표로 소모임을 나눠줌//
   {
     id: 2,
     name: 'Fall in run',
@@ -78,40 +99,59 @@ const featuredClubs = [
 ]
 
 function HomePage() {
+  // function 함수 -> 특정 작업을 수행하는 코드 묶음//
+  // HomePage라는 이름의 함수를 만들기 시작//
   const navigate = useNavigate()
+  // navigate이라는 이름으로 저장//
   const [selectedRegion, setSelectedRegion] = useState('서울특별시')
+  // 1. 선택된 지역을 저장하는 seletedRegion과, 그걸 바꾸는 함수 setSelectedRegion을 만들어//
+  // 2. 처음에는 서울특별시로 시작//
+  // 3. 아래 내용도 마찬가지로 서초구, 20대 값으로 설정되어 있고 searchValue는 값이 비어있는 상태에서 시작//
   const [selectedDistrict, setSelectedDistrict] = useState('서초구')
   const [ageRange, setAgeRange] = useState('20대')
   const [searchValue, setSearchValue] = useState('')
 
   const handleSearchSubmit = (event) => {
+  // 검색 버튼을 눌렀을 때 실행될 함수를 만듦//
     event.preventDefault()
+    // 위에 검색 버튼 눌렀을때 기본 동작을 막아라인데, chat GPT에서는 폼 제출 시 페이지가 새로고침되는 것을 막음이라고 함//
     navigate('/clubs', {
+    // clubs페이지로 이동
       state: {
+      // state: 이거는 state라는 이름으로 데이터를 전달 {} 여기에 해당된 데이터 아래 코드
         region: `${selectedRegion} ${selectedDistrict}`,
+        // 지역: 변수(지역), 변수(구)
+        // ' 장하람은 ${}, ${}에 살고 있어요' -> 장하람은 어디 지역에 어디 구에 살고 있어요 '어디'가 늘 변수가 생길 수 있다는 의미임.
         type: 'all',
+        // type 속성에 'all'이라는 값 저장
         keyword: searchValue
+        // 검색어: 검색창에 입력된 값
       }
     })
   }
 
   return (
+  // 화면에 보여줄 x를 작성
     <div className="home-desktop">
       <header className="top-nav">
         <div className="logo" onClick={() => navigate('/')}>ANT</div>
+        {/* 로고인 ANT에 클릭이 발생하면 '/'->홈으로 이동하게 된다는 의미 */}
         <div className="nav-controls">
           <RegionSelector
             selectedRegion={selectedRegion}
             selectedDistrict={selectedDistrict}
             onRegionChange={setSelectedRegion}
             onDistrictChange={setSelectedDistrict}
+            // 지역 선택 컴포넌트를 사용하고, 필요한 데이터와 함수들을 전달
           />
           <select value={ageRange} onChange={(e) => setAgeRange(e.target.value)}>
+            {/* 연령대 선택 박스. 선택이 바뀌면 ageRange 값도 바뀜 */}
             <option>20대</option>
             <option>30대</option>
             <option>40대</option>
             <option>50대+</option>
           </select>
+          {/* 20대~50대+ 중에서 선택이 가능하다는 의미 */}
           <form className="search-form" onSubmit={handleSearchSubmit}>
             <input
               type="text"
