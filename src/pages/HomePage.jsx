@@ -159,9 +159,13 @@ function HomePage() {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
+            <button type="submit">🔍</button>
           </form>
         </div>
         <div className="nav-actions">
+          <button className="icon-btn" aria-label="검색">
+            🔍
+          </button>
           <button className="icon-btn" aria-label="알림">
             🔔
           </button>
@@ -202,7 +206,7 @@ function HomePage() {
             <div className="hero-text">
               <h1>작지만 지혜롭게, 함께 준비하는 우리</h1>
               <p>
-                Ant는gd 성경 잠언의 개미처럼, 작지만 지혜롭게 미래를 준비하는 사람들의 모임입니다.
+                Ant는 성경 잠언의 개미처럼, 작지만 지혜롭게 미래를 준비하는 사람들의 모임입니다.
                 개미는 감독자 없이도 스스로 움직이고, 여름에 겨울을 준비합니다.
                 우리도 마찬가지로 하나님이 주신 몸과 마음을 성실히 가꾸고, 서로의 지혜를 나누며 함께 성장합니다.
                 <br />
@@ -221,13 +225,17 @@ function HomePage() {
           <section className="featured-section">
             <header className="section-header">
               <h2>활동이 활발한 모임</h2>
-              <button className="more-btn" onClick={() => navigate('/clubs', { state: { region: `${selectedRegion} ${selectedDistrict}`, type: 'all' } })}>
-                더보기 →
+              <button className="more-btn" onClick={() => navigate('/clubs/active')}>
+                상세 보기 →
               </button>
             </header>
             <div className="club-grid">
               {featuredClubs.map((club) => (
-                <div key={club.id} className="club-card" onClick={() => navigate(`/clubs/${club.id}`)}>
+                <div
+                  key={club.id}
+                  className="club-card"
+                  onClick={() => navigate('/clubs/active', { state: { clubId: club.id } })}
+                >
                   <div className="club-image" style={{ backgroundImage: `url(${club.image})` }} />
                   <div className="club-content">
                     <div className="club-title">{club.name}</div>

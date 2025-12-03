@@ -4,6 +4,7 @@ import ClubListPage from './pages/ClubListPage'
 import ClubDetailPage from './pages/ClubDetailPage'
 import MyClubsPage from './pages/MyClubsPage'
 import FeedPage from './pages/FeedPage'
+import ActiveClubsPage from './pages/ActiveClubsPage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/clubs" element={<ClubListPage />} />
+          <Route path="/clubs/active" element={<ActiveClubsPage />} />
           <Route path="/clubs/:id" element={<ClubDetailPage />} />
           <Route path="/my-clubs" element={<MyClubsPage />} />
           <Route path="/feed" element={<FeedPage />} />
