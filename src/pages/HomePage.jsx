@@ -15,21 +15,18 @@ import './HomePage.css'
 // 현재 폴더에 있는 HomePage.css 스타일 파일을 가져와줘//
 
 const categories = [
-  // categories라는 이름으로 아래 목록을 저장할게//
-  // const는 값을 저장하는 상자. 한 번 저장하면 바꿀 수 없는 상자라고 생각하면 됨//
-  '전체',
-  '운동/스포츠',
-  '사교/인맥',
-  '인문학/책/글',
-  '아웃도어/여행',
-  '음악/악기',
-  '업종/직무',
-  '문화/공연/축제',
-  '외국어/언어',
-  '게임/오락',
-  '공예/만들기',
-  '댄스/무용',
-  '봉사/헬스'
+  { icon: '💪', label: '운동/스포츠' },
+  { icon: '🤝', label: '사교/인맥' },
+  { icon: '📖', label: '인문학/책/글' },
+  { icon: '🏕️', label: '아웃도어/여행' },
+  { icon: '🎻', label: '음악/악기' },
+  { icon: '💼', label: '업종/직무' },
+  { icon: '🎭', label: '문화/공연/축제' },
+  { icon: '🌍', label: '외국어/언어' },
+  { icon: '🎮', label: '게임/오락' },
+  { icon: '🧵', label: '공예/만들기' },
+  { icon: '💃', label: '댄스/무용' },
+  { icon: '💗', label: '봉사/헬스' }
 ]
 
 const featuredClubs = [
@@ -110,6 +107,7 @@ function HomePage() {
   const [selectedDistrict, setSelectedDistrict] = useState('서초구')
   const [ageRange, setAgeRange] = useState('20대')
   const [searchValue, setSearchValue] = useState('')
+  const [activeView, setActiveView] = useState('online')
 
   const handleSearchSubmit = (event) => {
   // 검색 버튼을 눌렀을 때 실행될 함수를 만듦//
@@ -177,30 +175,6 @@ function HomePage() {
       </header>
 
       <div className="home-body">
-        <aside className="sidebar">
-          <button className="download-btn">앱 다운로드</button>
-          <nav className="sidebar-nav">
-            <button className="active">🏠 홈</button>
-            <button>⭐ 온라인</button>
-            <button>🏆 오프라인</button>
-            <button>🕒 최근 본 모임</button>
-          </nav>
-
-          <div className="category-list">
-            <h3>카테고리</h3>
-            <ul>
-              {categories.map((category) => (
-                <li key={category}>
-                  <label>
-                    <input type="radio" name="category" />
-                    <span>{category}</span>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-
         <main className="main-content">
           <section className="hero-section">
             <div className="hero-text">
@@ -222,12 +196,38 @@ function HomePage() {
             </div>
           </section>
 
+          <section className="category-section">
+            <div className="category-grid">
+              {categories.map((category) => (
+                <button key={category.label} className="category-item">
+                  <span className="category-icon">{category.icon}</span>
+                  <span className="category-label">{category.label}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="view-switcher">
+            <div className="view-buttons">
+              {[
+                { key: 'online', label: '⭐ 온라인 모임' },
+                { key: 'offline', label: '🏆 오프라인 모임' },
+                { key: 'recent', label: '🕒 최근 본 모임' }
+              ].map((button) => (
+                <button
+                  key={button.key}
+                  className={`view-button ${activeView === button.key ? 'active' : ''}`}
+                  onClick={() => setActiveView(button.key)}
+                >
+                  {button.label}
+                </button>
+              ))}
+            </div>
+          </section>
+
           <section className="featured-section">
-            <header className="section-header">
+            <header className="section-header center">
               <h2>활동이 활발한 모임</h2>
-              <button className="more-btn" onClick={() => navigate('/clubs/active')}>
-                상세 보기 →
-              </button>
             </header>
             <div className="club-grid">
               {featuredClubs.map((club) => (
