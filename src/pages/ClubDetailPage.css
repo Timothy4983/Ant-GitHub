@@ -1,250 +1,456 @@
+/* ==================== 전체 페이지 레이아웃 ==================== */
+
+/* club-detail-page: 소모임 상세 페이지 전체를 감싸는 컨테이너 */
 .club-detail-page {
   width: 100%;
+  /* 너비를 화면 전체로 */
   max-width: 428px;
+  /* 최대 너비 428px (모바일 크기) */
   min-height: 100vh;
+  /* 최소 높이를 화면 전체 높이로 (100vh = viewport height) */
   background-color: #F5F5DC;
+  /* 배경색 베이지색 */
   margin: 0 auto;
+  /* 좌우 여백 자동 (화면 가운데 정렬) */
 }
 
+/* ==================== 헤더 영역 ==================== */
+
+/* club-detail-header: 페이지 상단 헤더 (뒤로가기, 제목, 좋아요 버튼) */
 .club-detail-header {
   display: flex;
+  /* Flexbox 레이아웃 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   justify-content: space-between;
+  /* 좌우 끝으로 배치 (사이 공간 최대) */
   padding: 20px;
+  /* 안쪽 여백 20px */
   background-color: white;
+  /* 배경색 흰색 */
   border-bottom: 1px solid #E0E0E0;
+  /* 아래 테두리 1px, 회색 */
   position: sticky;
+  /* 스크롤해도 상단에 고정 */
   top: 0;
+  /* 화면 최상단에 위치 */
   z-index: 100;
+  /* 다른 요소 위에 표시 (숫자가 클수록 위) */
 }
 
+/* 헤더의 제목(h2) */
 .club-detail-header h2 {
   font-size: 20px;
+  /* 글자 크기 20px */
   font-weight: 700;
+  /* 글자 두께 굵게 */
   color: #333;
+  /* 글자 색상 진한 회색 */
   margin: 0;
+  /* 기본 여백 제거 */
   flex: 1;
+  /* 남은 공간 전부 차지 */
   text-align: center;
+  /* 텍스트 가운데 정렬 */
 }
 
+/* ==================== 버튼 스타일 ==================== */
+
+/* back-button: 뒤로가기 버튼 */
 .back-button {
   background: none;
+  /* 배경 없음 */
   border: none;
+  /* 테두리 없음 */
   font-size: 18px;
+  /* 글자 크기 18px */
   color: #8B4513;
+  /* 글자 색상 갈색 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   padding: 5px;
+  /* 안쪽 여백 5px */
 }
 
+/* like-button: 좋아요 버튼 */
 .like-button {
   background: none;
+  /* 배경 없음 */
   border: none;
+  /* 테두리 없음 */
   font-size: 24px;
+  /* 글자(이모지) 크기 24px */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   padding: 5px;
+  /* 안쪽 여백 5px */
 }
 
+/* ==================== 본문 영역 ==================== */
+
+/* club-detail-content: 전체 본문 컨테이너 */
 .club-detail-content {
   padding: 20px;
+  /* 안쪽 여백 20px */
 }
 
+/* ==================== 소모임 정보 섹션 ==================== */
+
+/* club-info-section: 소모임 기본 정보 영역 */
 .club-info-section {
   background-color: white;
+  /* 배경색 흰색 */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   padding: 20px;
+  /* 안쪽 여백 20px */
   margin-bottom: 20px;
+  /* 아래 여백 20px (다음 섹션과 간격) */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* 그림자 효과 */
+  /* 0: 가로 이동 없음 */
+  /* 2px: 세로로 2px 아래 */
+  /* 8px: 흐림 정도 */
+  /* rgba(0, 0, 0, 0.08): 검은색을 8% 투명도로 */
 }
 
+/* club-header-info: 소모임 제목과 뱃지 영역 */
 .club-header-info {
   display: flex;
+  /* Flexbox 사용 */
   justify-content: space-between;
+  /* 좌우 끝으로 배치 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   margin-bottom: 15px;
+  /* 아래 여백 15px */
 }
 
+/* club-title: 소모임 제목 */
 .club-title {
   font-size: 24px;
+  /* 글자 크기 24px */
   font-weight: 700;
+  /* 글자 두께 매우 굵게 */
   color: #333;
+  /* 글자 색상 진한 회색 */
   margin: 0;
+  /* 기본 여백 제거 */
   flex: 1;
+  /* 남은 공간 차지 */
 }
 
+/* club-type-badge: 온라인/오프라인 뱃지 공통 스타일 */
 .club-type-badge {
   padding: 6px 14px;
+  /* 안쪽 여백 (위아래 6px, 좌우 14px) */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   font-size: 13px;
+  /* 글자 크기 13px */
   font-weight: 600;
+  /* 글자 두께 굵게 */
 }
 
+/* 온라인 뱃지 스타일 */
+/* .online 클래스가 함께 있을 때 적용 */
 .club-type-badge.online {
   background-color: #E3F2FD;
+  /* 배경색 연한 파란색 */
   color: #1976D2;
+  /* 글자 색상 진한 파란색 */
 }
 
+/* 오프라인 뱃지 스타일 */
+/* .offline 클래스가 함께 있을 때 적용 */
 .club-type-badge.offline {
   background-color: #F3E5F5;
+  /* 배경색 연한 보라색 */
   color: #7B1FA2;
+  /* 글자 색상 진한 보라색 */
 }
 
+/* club-full-description: 소모임 상세 설명 */
 .club-full-description {
   font-size: 15px;
+  /* 글자 크기 15px */
   color: #666;
+  /* 글자 색상 회색 */
   line-height: 1.6;
+  /* 줄 간격 1.6배 (읽기 편하게) */
   margin-bottom: 15px;
+  /* 아래 여백 15px */
 }
 
+/* club-meta: 지역과 멤버 수 정보 */
 .club-meta {
   display: flex;
+  /* Flexbox 사용 */
   gap: 20px;
+  /* 각 정보 사이 간격 20px */
   margin-bottom: 15px;
+  /* 아래 여백 15px */
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #888;
+  /* 글자 색상 연한 회색 */
 }
 
+/* club-tags: 해시태그 영역 */
 .club-tags {
   display: flex;
+  /* Flexbox 사용 */
   flex-wrap: wrap;
+  /* 공간 부족하면 다음 줄로 */
   gap: 8px;
+  /* 각 태그 사이 간격 8px */
   margin-bottom: 20px;
+  /* 아래 여백 20px */
 }
 
+/* club-tag: 개별 해시태그 */
 .club-tag {
   padding: 6px 12px;
+  /* 안쪽 여백 (위아래 6px, 좌우 12px) */
   background-color: #FFF8DC;
+  /* 배경색 연한 베이지색 */
   color: #8B4513;
+  /* 글자 색상 갈색 */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   font-size: 13px;
+  /* 글자 크기 13px */
   font-weight: 500;
+  /* 글자 두께 중간 */
 }
 
+/* join-button: 소모임 참여하기 버튼 */
 .join-button {
   width: 100%;
+  /* 너비를 부모 요소에 맞춤 (전체 너비) */
   padding: 14px;
+  /* 안쪽 여백 14px */
   background-color: #8B4513;
+  /* 배경색 갈색 */
   color: white;
+  /* 글자 색상 흰색 */
   border: none;
+  /* 테두리 없음 */
   border-radius: 10px;
+  /* 모서리 둥글게 10px */
   font-size: 16px;
+  /* 글자 크기 16px */
   font-weight: 600;
+  /* 글자 두께 굵게 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   transition: all 0.3s ease;
+  /* 모든 변화를 0.3초 동안 부드럽게 */
+  /* all: 모든 속성 */
+  /* 0.3s: 0.3초 */
+  /* ease: 자연스러운 속도 변화 */
 }
 
+/* 버튼에 마우스 올렸을 때 (hover) */
 .join-button:hover {
   background-color: #6B3410;
+  /* 배경색 더 진한 갈색으로 */
   transform: translateY(-2px);
+  /* 위로 2px 이동 (떠오르는 효과) */
   box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+  /* 그림자 더 진하게 */
 }
 
+/* ==================== 피드 섹션 ==================== */
+
+/* club-feed-section: 소모임 피드 영역 */
 .club-feed-section {
   background-color: white;
+  /* 배경색 흰색 */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   padding: 20px;
+  /* 안쪽 여백 20px */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* 그림자 효과 */
 }
 
+/* feed-title: 피드 제목 */
 .feed-title {
   font-size: 20px;
+  /* 글자 크기 20px */
   font-weight: 700;
+  /* 글자 두께 매우 굵게 */
   color: #333;
+  /* 글자 색상 진한 회색 */
   margin-bottom: 20px;
+  /* 아래 여백 20px */
 }
 
+/* feed-list: 피드 게시물 목록 컨테이너 */
 .feed-list {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 (위에서 아래로) */
   gap: 20px;
+  /* 각 게시물 사이 간격 20px */
 }
 
+/* ==================== 개별 피드 게시물 ==================== */
+
+/* feed-post: 개별 피드 게시물 */
 .feed-post {
   border-bottom: 1px solid #F0F0F0;
+  /* 아래 테두리 1px, 연한 회색 */
   padding-bottom: 20px;
+  /* 아래 안쪽 여백 20px */
 }
 
+/* 마지막 게시물은 아래 테두리 없음 */
 .feed-post:last-child {
   border-bottom: none;
+  /* 아래 테두리 제거 */
   padding-bottom: 0;
+  /* 아래 여백 제거 */
 }
 
+/* post-header: 게시물 헤더 (작성자 정보) */
 .post-header {
   margin-bottom: 12px;
+  /* 아래 여백 12px */
 }
 
+/* post-author-info: 작성자 정보 영역 */
 .post-author-info {
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   gap: 12px;
+  /* 자식 요소 사이 간격 12px */
 }
 
+/* author-avatar: 작성자 아바타 */
 .author-avatar {
   width: 40px;
+  /* 너비 40px */
   height: 40px;
+  /* 높이 40px (정사각형) */
   border-radius: 50%;
+  /* 완전한 원 모양 */
   background-color: #FFF8DC;
+  /* 배경색 연한 베이지색 */
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   justify-content: center;
+  /* 가로 방향 가운데 정렬 */
   font-size: 20px;
+  /* 이모지 크기 20px */
 }
 
+/* author-name: 작성자 이름 */
 .author-name {
   font-weight: 600;
+  /* 글자 두께 굵게 */
   color: #333;
+  /* 글자 색상 진한 회색 */
   font-size: 15px;
+  /* 글자 크기 15px */
 }
 
+/* post-time: 게시 시간 */
 .post-time {
   font-size: 12px;
+  /* 글자 크기 12px */
   color: #999;
+  /* 글자 색상 연한 회색 */
   margin-top: 2px;
+  /* 위 여백 2px */
 }
 
+/* post-content: 게시물 내용 */
 .post-content {
   font-size: 15px;
+  /* 글자 크기 15px */
   color: #333;
+  /* 글자 색상 진한 회색 */
   line-height: 1.6;
+  /* 줄 간격 1.6배 */
   margin-bottom: 12px;
+  /* 아래 여백 12px */
 }
 
+/* post-image: 게시물 이미지 컨테이너 */
 .post-image {
   width: 100%;
+  /* 너비를 부모 요소에 맞춤 */
   border-radius: 8px;
+  /* 모서리 둥글게 8px */
   overflow: hidden;
+  /* 넘치는 부분 숨김 (이미지가 모서리 밖으로 안 나감) */
   margin-bottom: 12px;
+  /* 아래 여백 12px */
 }
 
+/* 게시물 이미지 자체 */
 .post-image img {
   width: 100%;
+  /* 너비를 컨테이너에 맞춤 */
   height: auto;
+  /* 높이는 비율에 맞춰 자동 */
   display: block;
+  /* 블록 요소로 (아래 여백 제거) */
 }
 
+/* ==================== 게시물 액션 버튼 ==================== */
+
+/* post-actions: 좋아요, 댓글 버튼 영역 */
 .post-actions {
   display: flex;
+  /* Flexbox 사용 */
   gap: 20px;
+  /* 각 버튼 사이 간격 20px */
 }
 
+/* action-btn: 액션 버튼 (좋아요, 댓글) */
 .action-btn {
   background: none;
+  /* 배경 없음 */
   border: none;
+  /* 테두리 없음 */
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   gap: 6px;
+  /* 이모지와 숫자 사이 간격 6px */
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #666;
+  /* 글자 색상 회색 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   padding: 5px;
+  /* 안쪽 여백 5px */
 }
 
+/* 액션 버튼에 마우스 올렸을 때 */
 .action-btn:hover {
   color: #8B4513;
+  /* 글자 색상 갈색으로 변경 */
 }
 
+/* ==================== 에러 메시지 ==================== */
+
+/* no-club: 소모임을 찾을 수 없을 때 표시 */
 .no-club {
   text-align: center;
+  /* 텍스트 가운데 정렬 */
   padding: 60px 20px;
+  /* 안쪽 여백 (위아래 60px, 좌우 20px) */
   color: #999;
+  /* 글자 색상 연한 회색 */
 }
-

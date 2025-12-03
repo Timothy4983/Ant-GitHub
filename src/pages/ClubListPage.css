@@ -1,154 +1,294 @@
+/* ==================== 전체 페이지 레이아웃 ==================== */
+
+/* club-list-page: 소모임 목록 페이지 전체를 감싸는 컨테이너 */
 .club-list-page {
   width: 100%;
+  /* 너비를 화면 전체로 */
   max-width: 428px;
+  /* 최대 너비 428px (모바일 크기) */
   min-height: 100vh;
+  /* 최소 높이를 화면 전체 높이로 (100vh = viewport height) */
   background-color: #F5F5DC;
+  /* 배경색 베이지색 */
   margin: 0 auto;
+  /* 좌우 여백 자동 (화면 가운데 정렬) */
 }
 
+/* ==================== 헤더 영역 ==================== */
+
+/* club-list-header: 페이지 상단 헤더 (뒤로가기 + 제목) */
 .club-list-header {
   display: flex;
+  /* Flexbox 레이아웃 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   gap: 15px;
+  /* 자식 요소 사이 간격 15px */
   padding: 20px;
+  /* 안쪽 여백 20px */
   background-color: white;
+  /* 배경색 흰색 */
   border-bottom: 1px solid #E0E0E0;
+  /* 아래 테두리 1px, 회색 */
 }
 
+/* back-button: 뒤로가기 버튼 */
 .back-button {
   background: none;
+  /* 배경 없음 */
   border: none;
+  /* 테두리 없음 */
   font-size: 18px;
+  /* 글자 크기 18px */
   color: #8B4513;
+  /* 글자 색상 갈색 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   padding: 5px;
+  /* 안쪽 여백 5px */
 }
 
+/* 헤더의 제목(h2) */
 .club-list-header h2 {
   font-size: 20px;
+  /* 글자 크기 20px */
   font-weight: 700;
+  /* 글자 두께 매우 굵게 */
   color: #333;
+  /* 글자 색상 진한 회색 */
   margin: 0;
+  /* 기본 여백 제거 */
 }
 
+/* ==================== 본문 영역 ==================== */
+
+/* club-list-content: 전체 본문 컨테이너 */
 .club-list-content {
   padding: 20px;
+  /* 안쪽 여백 20px */
 }
 
+/* ==================== 모임 타입 선택 버튼 ==================== */
+
+/* club-type-selector: 전체/온라인/오프라인 버튼 영역 */
 .club-type-selector {
   display: flex;
+  /* Flexbox 사용 */
   gap: 10px;
+  /* 각 버튼 사이 간격 10px */
   margin-bottom: 20px;
+  /* 아래 여백 20px */
 }
 
+/* club-type-btn: 타입 선택 버튼 공통 스타일 */
 .club-type-btn {
   flex: 1;
+  /* 남은 공간을 똑같이 나눠서 차지 */
+  /* flex: 1 → 세 버튼이 같은 너비로 */
   padding: 12px;
+  /* 안쪽 여백 12px */
   border: 2px solid #E0E0E0;
+  /* 테두리 2px, 연한 회색 */
   border-radius: 10px;
+  /* 모서리 둥글게 10px */
   background-color: white;
+  /* 배경색 흰색 */
   font-size: 15px;
+  /* 글자 크기 15px */
   font-weight: 500;
+  /* 글자 두께 중간 */
   color: #666;
+  /* 글자 색상 회색 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   transition: all 0.3s ease;
+  /* 모든 변화를 0.3초 동안 부드럽게 */
+  /* all: 모든 속성 */
+  /* 0.3s: 0.3초 */
+  /* ease: 자연스러운 속도 변화 */
 }
 
+/* 버튼에 마우스 올렸을 때 (hover) */
 .club-type-btn:hover {
   border-color: #8B4513;
+  /* 테두리 색상 갈색으로 */
   background-color: #FFF8DC;
+  /* 배경색 연한 베이지색으로 */
 }
 
+/* 선택된 버튼 스타일 */
+/* .active 클래스가 함께 있을 때 적용 */
 .club-type-btn.active {
   border-color: #8B4513;
+  /* 테두리 색상 갈색 */
   background-color: #8B4513;
+  /* 배경색 갈색 */
   color: white;
+  /* 글자 색상 흰색 */
 }
 
+/* ==================== 소모임 목록 ==================== */
+
+/* club-list: 소모임 카드들을 담는 컨테이너 */
 .club-list {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 (위에서 아래로) */
   gap: 15px;
+  /* 각 카드 사이 간격 15px */
 }
 
+/* ==================== 소모임 카드 ==================== */
+
+/* club-card: 개별 소모임 카드 */
 .club-card {
   background-color: white;
+  /* 배경색 흰색 */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   padding: 20px;
+  /* 안쪽 여백 20px */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 (클릭 가능) */
   transition: all 0.3s ease;
+  /* 모든 변화를 0.3초 동안 부드럽게 */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* 그림자 효과 */
+  /* 0: 가로 이동 없음 */
+  /* 2px: 세로로 2px 아래 */
+  /* 8px: 흐림 정도 */
+  /* rgba(0, 0, 0, 0.08): 검은색을 8% 투명도로 */
 }
 
+/* 카드에 마우스 올렸을 때 (hover) */
 .club-card:hover {
   transform: translateY(-2px);
+  /* 위로 2px 이동 (떠오르는 효과) */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  /* 그림자 더 진하게 */
 }
 
+/* club-card-header: 카드 헤더 (이름 + 뱃지) */
 .club-card-header {
   display: flex;
+  /* Flexbox 사용 */
   justify-content: space-between;
+  /* 좌우 끝으로 배치 (사이 공간 최대) */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   margin-bottom: 10px;
+  /* 아래 여백 10px */
 }
 
+/* club-name: 소모임 이름 */
 .club-name {
   font-size: 18px;
+  /* 글자 크기 18px */
   font-weight: 700;
+  /* 글자 두께 매우 굵게 */
   color: #333;
+  /* 글자 색상 진한 회색 */
   margin: 0;
+  /* 기본 여백 제거 */
 }
 
+/* ==================== 타입 뱃지 ==================== */
+
+/* club-type-badge: 온라인/오프라인 뱃지 공통 스타일 */
 .club-type-badge {
   padding: 4px 12px;
+  /* 안쪽 여백 (위아래 4px, 좌우 12px) */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   font-size: 12px;
+  /* 글자 크기 12px */
   font-weight: 600;
+  /* 글자 두께 굵게 */
 }
 
+/* 온라인 뱃지 스타일 */
+/* .online 클래스가 함께 있을 때 적용 */
 .club-type-badge.online {
   background-color: #E3F2FD;
+  /* 배경색 연한 파란색 */
   color: #1976D2;
+  /* 글자 색상 진한 파란색 */
 }
 
+/* 오프라인 뱃지 스타일 */
+/* .offline 클래스가 함께 있을 때 적용 */
 .club-type-badge.offline {
   background-color: #F3E5F5;
+  /* 배경색 연한 보라색 */
   color: #7B1FA2;
+  /* 글자 색상 진한 보라색 */
 }
 
+/* ==================== 소모임 정보 ==================== */
+
+/* club-description: 소모임 설명 */
 .club-description {
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #666;
+  /* 글자 색상 회색 */
   margin-bottom: 12px;
+  /* 아래 여백 12px */
   line-height: 1.5;
+  /* 줄 간격 1.5배 (읽기 편하게) */
 }
 
+/* club-info: 지역과 멤버 수 정보 영역 */
 .club-info {
   display: flex;
+  /* Flexbox 사용 */
   gap: 15px;
+  /* 각 정보 사이 간격 15px */
   margin-bottom: 12px;
+  /* 아래 여백 12px */
   font-size: 13px;
+  /* 글자 크기 13px */
   color: #888;
+  /* 글자 색상 연한 회색 */
 }
 
+/* ==================== 해시태그 ==================== */
+
+/* club-tags: 해시태그 영역 */
 .club-tags {
   display: flex;
+  /* Flexbox 사용 */
   flex-wrap: wrap;
+  /* 공간 부족하면 다음 줄로 */
   gap: 6px;
+  /* 각 태그 사이 간격 6px */
 }
 
+/* club-tag: 개별 해시태그 */
 .club-tag {
   padding: 4px 10px;
+  /* 안쪽 여백 (위아래 4px, 좌우 10px) */
   background-color: #FFF8DC;
+  /* 배경색 연한 베이지색 */
   color: #8B4513;
+  /* 글자 색상 갈색 */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   font-size: 12px;
+  /* 글자 크기 12px */
   font-weight: 500;
+  /* 글자 두께 중간 */
 }
 
+/* ==================== 빈 상태 메시지 ==================== */
+
+/* no-clubs: 조건에 맞는 소모임이 없을 때 표시 */
 .no-clubs {
   text-align: center;
+  /* 텍스트 가운데 정렬 */
   padding: 60px 20px;
+  /* 안쪽 여백 (위아래 60px, 좌우 20px) */
   color: #999;
+  /* 글자 색상 연한 회색 */
 }
-

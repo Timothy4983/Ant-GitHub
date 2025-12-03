@@ -1,303 +1,539 @@
+/* ==================== 전체 페이지 레이아웃 ==================== */
+
+/* active-page: 전체 페이지를 감싸는 컨테이너 */
 .active-page {
   width: 100%;
+  /* 너비를 화면 전체로 */
   max-width: 1320px;
+  /* 최대 너비 제한 (너무 넓어지지 않게) */
   margin: 0 auto;
+  /* 좌우 여백을 자동으로 (화면 가운데 정렬) */
   padding: 32px;
+  /* 안쪽 여백 32px */
   display: flex;
+  /* Flexbox 레이아웃 사용 */
   flex-direction: column;
+  /* 세로 방향으로 배치 (위에서 아래로) */
   gap: 32px;
+  /* 자식 요소들 사이 간격 32px */
 }
 
+/* ==================== 헤더 영역 ==================== */
+
+/* active-header: 페이지 상단 헤더 */
 .active-header {
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   justify-content: space-between;
+  /* 좌우 끝으로 배치 (사이 공간 최대) */
   background-color: #ffffff;
+  /* 배경색 흰색 */
   padding: 20px 28px;
+  /* 안쪽 여백 (위아래 20px, 좌우 28px) */
   border-radius: 18px;
+  /* 모서리를 둥글게 18px */
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  /* 그림자 효과 (입체감) */
+  /* 0: 가로 이동 없음 */
+  /* 20px: 세로로 20px 아래 */
+  /* 45px: 흐림 정도 */
+  /* rgba(15, 23, 42, 0.08): 진한 파란색을 8% 투명도로 */
 }
 
+/* 헤더의 제목(h1) */
 .active-header h1 {
   font-size: 26px;
+  /* 글자 크기 26px */
   font-weight: 800;
+  /* 글자 두께 매우 굵게 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
 }
 
+/* 헤더의 부제목 */
 .active-subtitle {
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #6b7280;
+  /* 글자 색상 회색 */
 }
 
+/* ==================== 버튼 스타일 ==================== */
+
+/* 뒤로가기 버튼과 액션 버튼 공통 스타일 */
 .back-btn,
 .action-btn {
   border: none;
+  /* 테두리 없음 */
   padding: 10px 18px;
+  /* 안쪽 여백 (위아래 10px, 좌우 18px) */
   border-radius: 999px;
+  /* 완전히 둥근 모양 (알약 모양) */
   font-weight: 600;
+  /* 글자 두께 굵게 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
 }
 
+/* 뒤로가기 버튼 */
 .back-btn {
   background-color: #f1f5f9;
+  /* 배경색 연한 회색 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
 }
 
+/* 액션 버튼 (소모임 전체 보기) */
 .action-btn {
   background-color: #2563eb;
+  /* 배경색 파란색 */
   color: #ffffff;
+  /* 글자 색상 흰색 */
 }
 
+/* ==================== 섹션 공통 스타일 ==================== */
+
+/* 피드, 멤버, 비슷한 모임 섹션 공통 스타일 */
 .active-feed-section,
 .member-section,
 .similar-section {
   background-color: #ffffff;
+  /* 배경색 흰색 */
   border-radius: 18px;
+  /* 모서리 둥글게 18px */
   padding: 28px 32px;
+  /* 안쪽 여백 (위아래 28px, 좌우 32px) */
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  /* 그림자 효과 */
 }
 
+/* 섹션 헤더 (각 섹션의 제목 부분) */
 .section-header {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   gap: 6px;
+  /* 자식 요소 사이 간격 6px */
   margin-bottom: 24px;
+  /* 아래 여백 24px */
 }
 
+/* 섹션 제목(h2) */
 .section-header h2 {
   font-size: 22px;
+  /* 글자 크기 22px */
   font-weight: 800;
+  /* 글자 두께 매우 굵게 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
 }
 
+/* 섹션 설명 */
 .section-caption {
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #6b7280;
+  /* 글자 색상 회색 */
 }
 
+/* ==================== 피드 그리드 ==================== */
+
+/* feed-grid: 피드들을 격자 형태로 배치 */
 .feed-grid {
   display: grid;
+  /* Grid 레이아웃 사용 */
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* 3개 열로 나누기 */
+  /* repeat(3, ...): 3번 반복 */
+  /* minmax(0, 1fr): 최소 0, 최대 1fr (똑같은 크기로 나눔) */
   gap: 18px;
+  /* 각 피드 카드 사이 간격 18px */
 }
 
+/* feed-card: 개별 피드 카드 */
 .feed-card {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   border-radius: 16px;
+  /* 모서리 둥글게 16px */
   overflow: hidden;
+  /* 넘치는 부분 숨김 (이미지가 모서리 밖으로 안 나감) */
   background-color: #ffffff;
+  /* 배경색 흰색 */
   border: 1px solid #f2f4f7;
+  /* 테두리 1px, 연한 회색 */
 }
 
+/* feed-image: 피드 이미지 */
 .feed-image {
   width: 100%;
+  /* 너비를 부모 요소에 맞춤 */
   height: 220px;
+  /* 높이 220px 고정 */
   background-size: cover;
+  /* 이미지를 영역에 맞춰 확대 (비율 유지) */
   background-position: center;
+  /* 이미지를 가운데 정렬 */
 }
 
+/* feed-info: 피드 정보 영역 */
 .feed-info {
   padding: 16px 18px 20px;
+  /* 안쪽 여백 (위 16px, 좌우 18px, 아래 20px) */
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   gap: 10px;
+  /* 자식 요소 사이 간격 10px */
 }
 
+/* feed-club: 소모임 이름 */
 .feed-club {
   font-weight: 700;
+  /* 글자 두께 굵게 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
 }
 
+/* feed-caption: 피드 내용 */
 .feed-caption {
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #4b5563;
+  /* 글자 색상 중간 회색 */
   line-height: 1.5;
+  /* 줄 간격 1.5배 (읽기 편하게) */
 }
 
+/* feed-meta: 좋아요, 댓글, 시간 정보 */
 .feed-meta {
   display: flex;
+  /* Flexbox 사용 */
   gap: 12px;
+  /* 각 정보 사이 간격 12px */
   font-size: 12px;
+  /* 글자 크기 12px */
   color: #6b7280;
+  /* 글자 색상 회색 */
 }
 
+/* ==================== 멤버 섹션 ==================== */
+
+/* member-section: 멤버 섹션 전체 */
 .member-section {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   gap: 24px;
+  /* 자식 요소 사이 간격 24px */
 }
 
+/* leader-grid: 리더들을 격자 형태로 배치 */
 .leader-grid {
   display: grid;
+  /* Grid 레이아웃 사용 */
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* 2개 열로 나누기 */
   gap: 16px;
+  /* 각 리더 카드 사이 간격 16px */
 }
 
+/* leader-card: 개별 리더 카드 */
 .leader-card {
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   gap: 14px;
+  /* 자식 요소 사이 간격 14px */
   padding: 16px;
+  /* 안쪽 여백 16px */
   border-radius: 14px;
+  /* 모서리 둥글게 14px */
   border: 1px solid #f0f2f5;
+  /* 테두리 1px, 연한 회색 */
   background-color: #f9fafb;
+  /* 배경색 매우 연한 회색 */
 }
 
+/* leader-avatar: 리더 아바타 (이모지) */
 .leader-avatar {
   width: 48px;
+  /* 너비 48px */
   height: 48px;
+  /* 높이 48px (정사각형) */
   border-radius: 50%;
+  /* 완전한 원 모양 */
   background-color: #fff;
+  /* 배경색 흰색 */
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   justify-content: center;
+  /* 가로 방향 가운데 정렬 */
   font-size: 24px;
+  /* 이모지 크기 24px */
 }
 
+/* leader-name: 리더 이름 */
 .leader-name {
   font-weight: 700;
+  /* 글자 두께 굵게 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
 }
 
+/* leader-role: 리더 역할 */
 .leader-role {
   font-size: 13px;
+  /* 글자 크기 13px */
   color: #6b7280;
+  /* 글자 색상 회색 */
 }
 
+/* leader-badge: 리더 뱃지 */
 .leader-badge {
   margin-left: auto;
+  /* 왼쪽 여백 자동 (오른쪽 끝으로 밀림) */
   padding: 6px 10px;
+  /* 안쪽 여백 (위아래 6px, 좌우 10px) */
   border-radius: 999px;
+  /* 완전히 둥근 모양 */
   background-color: #fee2e2;
+  /* 배경색 연한 빨간색 */
   color: #b91c1c;
+  /* 글자 색상 진한 빨간색 */
   font-size: 12px;
+  /* 글자 크기 12px */
   font-weight: 700;
+  /* 글자 두께 굵게 */
 }
 
+/* member-list: 멤버 목록 */
 .member-list {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   gap: 12px;
+  /* 자식 요소 사이 간격 12px */
 }
 
+/* member-count: 멤버 수 표시 */
 .member-count {
   font-size: 14px;
+  /* 글자 크기 14px */
   color: #6b7280;
+  /* 글자 색상 회색 */
 }
 
+/* member-item: 개별 멤버 항목 */
 .member-item {
   display: flex;
+  /* Flexbox 사용 */
   gap: 12px;
+  /* 자식 요소 사이 간격 12px */
   padding: 12px 0;
+  /* 안쪽 여백 (위아래 12px, 좌우 0) */
   border-bottom: 1px solid #f1f4f8;
+  /* 아래 테두리 1px, 연한 회색 */
 }
 
+/* 마지막 멤버 항목은 아래 테두리 없음 */
 .member-item:last-child {
   border-bottom: none;
+  /* 아래 테두리 제거 */
 }
 
+/* member-avatar: 멤버 아바타 */
 .member-avatar {
   width: 42px;
+  /* 너비 42px */
   height: 42px;
+  /* 높이 42px (정사각형) */
   border-radius: 50%;
+  /* 완전한 원 모양 */
   background-color: #f4f5f7;
+  /* 배경색 연한 회색 */
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   justify-content: center;
+  /* 가로 방향 가운데 정렬 */
 }
 
+/* member-name: 멤버 이름 */
 .member-name {
   display: flex;
+  /* Flexbox 사용 */
   align-items: center;
+  /* 세로 방향 가운데 정렬 */
   gap: 8px;
+  /* 자식 요소 사이 간격 8px */
   font-weight: 600;
+  /* 글자 두께 굵게 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
   font-size: 14px;
+  /* 글자 크기 14px */
 }
 
+/* member-badge: 멤버 뱃지 (Premium Sponsor 등) */
 .member-badge {
   padding: 4px 8px;
+  /* 안쪽 여백 (위아래 4px, 좌우 8px) */
   background-color: #fef3c7;
+  /* 배경색 연한 노란색 */
   color: #b45309;
+  /* 글자 색상 진한 주황색 */
   border-radius: 999px;
+  /* 완전히 둥근 모양 */
   font-size: 11px;
+  /* 글자 크기 11px */
   font-weight: 600;
+  /* 글자 두께 굵게 */
 }
 
+/* member-status: 멤버 상태 (NEW) */
 .member-status {
   font-size: 11px;
+  /* 글자 크기 11px */
   color: #f43f5e;
+  /* 글자 색상 빨간색 */
   font-weight: 700;
+  /* 글자 두께 굵게 */
 }
 
+/* member-message: 멤버 상태 메시지 */
 .member-message {
   font-size: 13px;
+  /* 글자 크기 13px */
   color: #4b5563;
+  /* 글자 색상 회색 */
 }
 
+/* ==================== 비슷한 모임 섹션 ==================== */
+
+/* similar-list: 비슷한 모임 목록 */
 .similar-list {
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   gap: 16px;
+  /* 각 카드 사이 간격 16px */
 }
 
+/* similar-card: 개별 추천 모임 카드 */
 .similar-card {
   display: flex;
+  /* Flexbox 사용 */
   gap: 16px;
+  /* 자식 요소 사이 간격 16px */
   padding: 16px;
+  /* 안쪽 여백 16px */
   border-radius: 16px;
+  /* 모서리 둥글게 16px */
   border: 1px solid #f0f2f5;
+  /* 테두리 1px, 연한 회색 */
   background-color: #ffffff;
+  /* 배경색 흰색 */
   cursor: pointer;
+  /* 마우스 올리면 손가락 모양 커서 */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* 변화 효과 0.2초 */
+  /* transform: 위치 이동 애니메이션 */
+  /* box-shadow: 그림자 애니메이션 */
+  /* ease: 자연스러운 속도 변화 */
 }
 
+/* 마우스 올렸을 때 (hover) 효과 */
 .similar-card:hover {
   transform: translateY(-2px);
+  /* 위로 2px 이동 (떠오르는 효과) */
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+  /* 그림자 더 진하게 */
 }
 
+/* similar-cover: 추천 모임 커버 이미지 */
 .similar-cover {
   width: 120px;
+  /* 너비 120px */
   height: 120px;
+  /* 높이 120px (정사각형) */
   border-radius: 12px;
+  /* 모서리 둥글게 12px */
   background-size: cover;
+  /* 이미지를 영역에 맞춤 */
   background-position: center;
+  /* 이미지 가운데 정렬 */
   flex-shrink: 0;
+  /* 크기 줄어들지 않게 고정 */
 }
 
+/* similar-body: 추천 모임 정보 영역 */
 .similar-body {
   flex: 1;
+  /* 남은 공간 전부 차지 */
   display: flex;
+  /* Flexbox 사용 */
   flex-direction: column;
+  /* 세로 방향 배치 */
   gap: 6px;
+  /* 자식 요소 사이 간격 6px */
 }
 
+/* similar-title: 추천 모임 제목 */
 .similar-title {
   font-size: 16px;
+  /* 글자 크기 16px */
   font-weight: 700;
+  /* 글자 두께 굵게 */
   color: #1f2933;
+  /* 글자 색상 진한 회색 */
 }
 
+/* similar-description: 추천 모임 설명 */
 .similar-description {
   font-size: 13px;
+  /* 글자 크기 13px */
   color: #4b5563;
+  /* 글자 색상 회색 */
   line-height: 1.4;
+  /* 줄 간격 1.4배 */
 }
 
+/* similar-tags: 해시태그 영역 */
 .similar-tags {
   display: flex;
+  /* Flexbox 사용 */
   flex-wrap: wrap;
+  /* 공간 부족하면 다음 줄로 */
   gap: 8px;
+  /* 각 태그 사이 간격 8px */
   font-size: 12px;
+  /* 글자 크기 12px */
   color: #2563eb;
+  /* 글자 색상 파란색 */
 }
 
+/* similar-meta: 지역과 멤버 수 정보 */
 .similar-meta {
   display: flex;
+  /* Flexbox 사용 */
   gap: 16px;
+  /* 각 정보 사이 간격 16px */
   font-size: 12px;
+  /* 글자 크기 12px */
   color: #6b7280;
+  /* 글자 색상 회색 */
 }
-
