@@ -17,6 +17,8 @@ import FeedPage from './pages/FeedPage'
 // pages 폴더의 FeedPage 컴포넌트 가져오기//
 import ActiveClubsPage from './pages/ActiveClubsPage'
 // pages 폴더의 ActiveClubsPage 컴포넌트 가져오기//
+import LoginPage from './pages/LoginPage'
+// pages 폴더의 LoginPage 컴포넌트 가져오기//
 
 function App() {
   // App 함수 시작 (웹사이트의 메인 구조를 잡는 곳)//
@@ -38,6 +40,8 @@ function App() {
           {/* 주소가 '/my-clubs'일 때 MyClubsPage를 보여줘 */}
           <Route path="/feed" element={<FeedPage />} />
           {/* 주소가 '/feed'일 때 FeedPage를 보여줘 */}
+          <Route path="/login" element={<LoginPage />} />
+          {/* 주소가 '/login'일 때 LoginPage를 보여줘 */}
           <Route path="*" element={<Navigate to="/" replace />} />
           {/* 위에 정의되지 않은 모든 주소('*')는 홈('/')으로 보내줘 */}
         </Routes>

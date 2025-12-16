@@ -324,3 +324,5 @@ function ActiveClubsPage() {
 
 // 이 컴포넌트를 다른 파일에서 import해서 사용할 수 있게 내보냄
 export default ActiveClubsPage
+
+
